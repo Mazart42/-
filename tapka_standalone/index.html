@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="tapka — сервис аренды автомобилей с онлайн-бронированием, личным кабинетом и админ-панелью.">
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts/app.js" defer></script>
+  <title>tapka — аренда автомобилей</title>
+</head>
+<body>
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="logo" href="#top" aria-label="tapka"><span>tap</span>ka</a>
+    <nav class="main-nav" aria-label="Главное меню">
+      <a href="#cities">Города</a>
+      <a href="#fleet">Автопарк</a>
+      <a href="#classes">Классы</a>
+      <a href="#steps">Как работает</a>
+      <a href="#plans">Тарифы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" id="themeToggle" aria-label="Переключить тему">☾</button>
+      <button class="btn small ghost" type="button" id="authButton">Войти</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">каршеринг без сюрпризов · от 1 суток</div>
+        <h1>Арендуйте автомобиль там, где начинается ваш маршрут.</h1>
+        <p>tapka подбирает машину под город, бюджет и задачу: деловая встреча, поездка за город, трансфер или семейные выходные.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#fleet">Выбрать авто</a>
+          <button class="btn ghost" type="button" data-open-booking>Быстрая бронь</button>
+        </div>
+        <div class="hero-stats" aria-label="Преимущества tapka">
+          <div><strong>8</strong><span>городов выдачи</span></div>
+          <div><strong>15 мин</strong><span>на подтверждение</span></div>
+          <div><strong>24/7</strong><span>поддержка</span></div>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Карточка автомобиля">
+        <div class="orbit one"></div>
+        <div class="orbit two"></div>
+        <div class="car-preview">
+          <img src="assets/cars/tesla.svg" alt="Электромобиль tapka">
+        </div>
+        <div class="floating-card top-card">
+          <span>Сегодня свободно</span>
+          <strong>Model 3 · Ордынка</strong>
+        </div>
+        <div class="floating-card bottom-card">
+          <span>от</span>
+          <strong>2 600 ₽ / сутки</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking-strip" aria-label="Поиск автомобиля">
+    <div class="container">
+      <form class="quick-search" id="quickSearch">
+        <label>
+          <span>Город</span>
+          <select name="city" id="cityFilter"><option value="all">Все города</option></select>
+        </label>
+        <label>
+          <span>Класс</span>
+          <select name="class" id="classFilter">
+            <option value="all">Любой</option>
+            <option value="economy">Эконом</option>
+            <option value="comfort">Комфорт</option>
+            <option value="business">Бизнес</option>
+            <option value="suv">SUV</option>
+            <option value="electric">Электро</option>
+            <option value="minivan">Минивэн</option>
+            <option value="premium">Премиум</option>
+          </select>
+        </label>
+        <label>
+          <span>Получение</span>
+          <input type="date" name="date_from" id="quickFrom">
+        </label>
+        <label>
+          <span>Возврат</span>
+          <input type="date" name="date_to" id="quickTo">
+        </label>
+        <button class="btn" type="submit">Найти</button>
+      </form>
+    </div>
+  </section>
+
+
+  <section class="section city-section" id="cities">
+    <div class="container section-head compact">
+      <div>
+        <div class="eyebrow">города</div>
+        <h2>Выдаём автомобили в 8 направлениях</h2>
+      </div>
+      <p class="section-note">Выберите город — автопарк ниже сразу отфильтруется по доступным машинам в этой локации.</p>
+    </div>
+    <div class="container city-grid">
+      <button class="city-card" type="button" data-city-pick="Новосибирск"><strong>Новосибирск</strong><span>седаны, бизнес и SUV для города и трассы</span></button>
+      <button class="city-card" type="button" data-city-pick="Кемерово"><strong>Кемерово</strong><span>комфортные авто для Кузбасса и поездок между городами</span></button>
+      <button class="city-card" type="button" data-city-pick="Топки"><strong>Топки</strong><span>эконом, комфорт и компактные кроссоверы</span></button>
+      <button class="city-card" type="button" data-city-pick="Улан-Удэ"><strong>Улан-Удэ</strong><span>SUV, минивэны и авто для дальних маршрутов</span></button>
+      <button class="city-card" type="button" data-city-pick="Ордынка"><strong>Ордынка</strong><span>машины для поездок по НСО и семейных выходных</span></button>
+      <button class="city-card" type="button" data-city-pick="Барабинск"><strong>Барабинск</strong><span>надёжные варианты для трассы и командировок</span></button>
+      <button class="city-card" type="button" data-city-pick="Тогучин"><strong>Тогучин</strong><span>кроссоверы, эконом-класс и ежедневная аренда</span></button>
+      <button class="city-card accent" type="button" data-city-pick="Душанбе (Таджикистан)"><strong>Душанбе</strong><span>аренда в Таджикистане: комфорт, бизнес и премиум</span></button>
+    </div>
+  </section>
+
+  <section class="section" id="fleet">
+    <div class="container section-head">
+      <div>
+        <div class="eyebrow">автопарк</div>
+        <h2>Машины под разные сценарии</h2>
+      </div>
+      <div class="fleet-tools">
+        <input id="searchInput" type="search" placeholder="Поиск: Camry, BMW, Haval...">
+        <div class="chip-row" aria-label="Фильтр класса">
+          <button class="chip active" data-class="all">Все</button>
+          <button class="chip" data-class="economy">Эконом</button>
+          <button class="chip" data-class="comfort">Комфорт</button>
+          <button class="chip" data-class="business">Бизнес</button>
+          <button class="chip" data-class="suv">SUV</button>
+          <button class="chip" data-class="electric">Электро</button>
+          <button class="chip" data-class="minivan">Минивэн</button>
+          <button class="chip" data-class="premium">Премиум</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="car-grid" id="carGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>Ничего не найдено. Попробуйте другой город или класс.</div>
+    </div>
+  </section>
+
+
+  <section class="section soft" id="classes">
+    <div class="container section-head compact">
+      <div>
+        <div class="eyebrow">классы и марки</div>
+        <h2>Марки под разные задачи аренды</h2>
+      </div>
+    </div>
+    <div class="container class-grid">
+      <article class="class-card"><span>Эконом</span><h3>Hyundai · Lada · Renault</h3><p>Для недорогих поездок по городу и коротких командировок.</p></article>
+      <article class="class-card"><span>Комфорт</span><h3>Kia · Skoda · Toyota</h3><p>Больше места, тише салон, удобнее для трассы и деловых встреч.</p></article>
+      <article class="class-card"><span>Бизнес</span><h3>Toyota · BMW · Mercedes-Benz</h3><p>Седаны представительского уровня для встреч, аэропорта и мероприятий.</p></article>
+      <article class="class-card"><span>SUV</span><h3>Geely · Haval · Toyota</h3><p>Кроссоверы и внедорожники для загорода, плохой погоды и багажа.</p></article>
+      <article class="class-card"><span>Электро</span><h3>Tesla · BYD · Zeekr</h3><p>Тихая поездка, быстрый разгон и современная мультимедиа.</p></article>
+      <article class="class-card"><span>Минивэн</span><h3>Volkswagen · Hyundai · Mercedes-Benz</h3><p>Для семьи, команды, трансфера и поездок с большим багажом.</p></article>
+      <article class="class-card premium"><span>Премиум</span><h3>Lexus · Audi · Mercedes-Benz</h3><p>Максимальный комфорт, статус и расширенная комплектация.</p></article>
+    </div>
+  </section>
+
+  <section class="section soft" id="steps">
+    <div class="container section-head compact">
+      <div>
+        <div class="eyebrow">как это работает</div>
+        <h2>Бронь в 3 шага</h2>
+      </div>
+    </div>
+    <div class="container steps-grid">
+      <article class="step-card"><span>01</span><h3>Выберите авто</h3><p>Фильтруйте по городу, классу, цене и типу топлива.</p></article>
+      <article class="step-card"><span>02</span><h3>Оставьте заявку</h3><p>Укажите даты и место выдачи. Менеджер подтвердит наличие.</p></article>
+      <article class="step-card"><span>03</span><h3>Получите ключи</h3><p>Подписываем договор, фиксируем состояние авто и вы отправляетесь в путь.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="plans">
+    <div class="container section-head compact">
+      <div>
+        <div class="eyebrow">тарифы</div>
+        <h2>Простые условия аренды</h2>
+      </div>
+    </div>
+    <div class="container plans-grid">
+      <article class="plan-card">
+        <h3>Город</h3><p>Для встреч и повседневных дел.</p><strong>от 2 600 ₽</strong><span>300 км/сутки включено</span>
+      </article>
+      <article class="plan-card featured">
+        <h3>Выходные</h3><p>Пятница–понедельник по фиксированной ставке.</p><strong>-12%</strong><span>при аренде от 3 суток</span>
+      </article>
+      <article class="plan-card">
+        <h3>Бизнес</h3><p>Подача к офису или аэропорту.</p><strong>от 5 900 ₽</strong><span>документы для юрлиц</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="section soft" id="reviews">
+    <div class="container section-head compact">
+      <div>
+        <div class="eyebrow">отзывы</div>
+        <h2>Клиенты возвращаются за удобством</h2>
+      </div>
+    </div>
+    <div class="container reviews-grid">
+      <blockquote>“Брали K5 на командировку. Машину подали чистой, договор оформили быстро.”<cite>— Марина, Новосибирск</cite></blockquote>
+      <blockquote>“Для семьи подошла Caravelle: места много, детское кресло добавили без вопросов.”<cite>— Игорь, Кемерово</cite></blockquote>
+      <blockquote>“Понравилось, что стоимость сразу понятна: сутки, залог и лимит пробега.”<cite>— Азиза, Душанбе</cite></blockquote>
+    </div>
+  </section>
+
+  <section class="section contact-section" id="contacts">
+    <div class="container contact-grid">
+      <div>
+        <div class="eyebrow">контакты</div>
+        <h2>Нужен подбор под маршрут?</h2>
+        <p>Оставьте контакты, и менеджер tapka предложит подходящие автомобили, рассчитает срок аренды и условия выдачи.</p>
+        <div class="contact-list">
+          <a href="tel:+78005550124">+7 800 555-01-24</a>
+          <a href="mailto:hello@tapka.local">hello@tapka.local</a>
+          <span>Новосибирск · Кемерово · Топки · Улан-Удэ · Ордынка · Барабинск · Тогучин · Душанбе</span>
+        </div>
+      </div>
+      <form class="contact-form" id="callbackForm">
+        <input name="name" placeholder="Имя" required>
+        <input name="phone" placeholder="Телефон" required>
+        <input name="email" type="email" placeholder="Email">
+        <textarea name="message" placeholder="Опишите задачу: город, даты, класс авто"></textarea>
+        <button class="btn" type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="logo" href="#top"><span>tap</span>ka</a>
+    <p>Учебный проект сервиса аренды авто с БД, регистрацией и админ-панелью.</p>
+    
+  </div>
+</footer>
+
+<dialog class="modal" id="authModal">
+  <form method="dialog" class="modal-close"><button aria-label="Закрыть">×</button></form>
+  <div class="modal-body auth-modal-body">
+    <div>
+      <div class="eyebrow">личный кабинет</div>
+      <h2>Вход или регистрация</h2>
+      <p>После входа данные автоматически подставятся в заявку на бронь.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-auth-tab="login">Вход</button>
+      <button class="tab" data-auth-tab="register">Регистрация</button>
+    </div>
+    <form id="loginForm" class="auth-form">
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Пароль" required>
+      <button class="btn" type="submit">Войти</button>
+    </form>
+    <form id="registerForm" class="auth-form" hidden>
+      <input name="name" placeholder="Имя" required>
+      <input name="phone" placeholder="Телефон">
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Пароль от 6 символов" required>
+      <button class="btn" type="submit">Зарегистрироваться</button>
+    </form>
+  </div>
+</dialog>
+
+<dialog class="modal" id="bookingModal">
+  <form method="dialog" class="modal-close"><button aria-label="Закрыть">×</button></form>
+  <div class="modal-body booking-modal-body">
+    <div class="booking-summary" id="bookingSummary"></div>
+    <form id="bookingForm" class="booking-form">
+      <input type="hidden" name="car_id" id="bookingCarId">
+      <div class="form-row">
+        <input name="customer_name" placeholder="Имя" required>
+        <input name="customer_phone" placeholder="Телефон" required>
+      </div>
+      <input name="customer_email" type="email" placeholder="Email">
+      <div class="form-row">
+        <select name="pickup_city" data-city-select required><option value="">Город выдачи</option></select>
+        <input name="pickup_address" placeholder="Адрес выдачи">
+      </div>
+      <div class="form-row">
+        <label><span>Получение</span><input name="date_from" type="date" required></label>
+        <label><span>Возврат</span><input name="date_to" type="date" required></label>
+      </div>
+      <textarea name="comment" placeholder="Комментарий: детское кресло, аэропорт, время подачи"></textarea>
+      <div class="total-line"><span>Предварительно</span><strong id="bookingTotal">—</strong></div>
+      <button class="btn" type="submit">Забронировать</button>
+    </form>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-label="Hyundai Solaris">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="26" stdDeviation="24" flood-opacity=".22"/></filter>
+  </defs>
+  <rect width="960" height="560" rx="42" fill="#eef6ff"/>
+  <circle cx="140" cy="92" r="120" fill="#60a5fa" opacity=".24"/>
+  <circle cx="824" cy="96" r="150" fill="#1e3a8a" opacity=".18"/>
+  <path d="M42 448 C220 340 364 516 540 420 C670 348 760 356 918 438 L918 560 L42 560 Z" fill="url(#g)" opacity=".17"/>
+  <g filter="url(#shadow)">
+    <path d="M190 332 C224 256 290 218 392 214 L586 214 C664 218 716 258 766 332 L810 344 C832 350 850 372 850 398 L850 422 C850 438 837 452 820 452 L154 452 C137 452 124 438 124 422 L124 398 C124 372 142 350 164 344 Z" fill="url(#g)"/>
+    <path d="M305 248 L394 248 L426 316 L244 316 C258 285 277 263 305 248 Z" fill="#e0f2fe" opacity=".88"/>
+    <path d="M422 248 L572 248 C621 250 658 274 690 316 L456 316 Z" fill="#dbeafe" opacity=".88"/>
+    <rect x="180" y="342" width="610" height="66" rx="26" fill="#1e3a8a" opacity=".35"/>
+    <circle cx="276" cy="436" r="58" fill="#111827"/><circle cx="276" cy="436" r="25" fill="#e5e7eb"/>
+    <circle cx="698" cy="436" r="58" fill="#111827"/><circle cx="698" cy="436" r="25" fill="#e5e7eb"/>
+    <rect x="786" y="360" width="42" height="18" rx="9" fill="#fde68a"/>
+    <rect x="146" y="362" width="42" height="18" rx="9" fill="#fee2e2"/>
+  </g>
+  <text x="64" y="82" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#111827">tapka</text>
+  <text x="64" y="126" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#475467">Hyundai Solaris</text>
+</svg>
